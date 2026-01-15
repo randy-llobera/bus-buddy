@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bus Buddy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">School transport coverage tracker</p>
+          <h1>Bus Buddy</h1>
+          <p class="subtitle">
+            Log who supervised each trip, balance the workload, and keep a clean
+            record month by month.
+          </p>
+        </div>
+        <div class="badge">
+          <span>Shared responsibility</span>
+          <strong>Fair &amp; transparent</strong>
+        </div>
+      </header>
+
+      <section class="panel" aria-labelledby="setup-title">
+        <div class="panel__header">
+          <h2 id="setup-title">Supervisors</h2>
+          <p>Set the two people sharing the bus duty.</p>
+        </div>
+        <div class="grid two">
+          <label class="field">
+            <span>Supervisor A</span>
+            <input id="nameA" type="text" placeholder="e.g. Alex" />
+          </label>
+          <label class="field">
+            <span>Supervisor B</span>
+            <input id="nameB" type="text" placeholder="e.g. Maria" />
+          </label>
+        </div>
+        <button class="primary" id="saveNames" type="button">Save names</button>
+      </section>
+
+      <section class="panel" aria-labelledby="log-title">
+        <div class="panel__header">
+          <h2 id="log-title">Log a trip</h2>
+          <p>Record each morning or afternoon journey.</p>
+        </div>
+        <form id="logForm" class="grid three">
+          <label class="field">
+            <span>Date</span>
+            <input id="logDate" type="date" required />
+          </label>
+          <label class="field">
+            <span>Shift</span>
+            <select id="logShift" required>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Supervisor</span>
+            <select id="logPerson" required></select>
+          </label>
+          <label class="field full">
+            <span>Notes (optional)</span>
+            <input id="logNotes" type="text" placeholder="Covering for, holiday info, etc." />
+          </label>
+          <label class="field inline">
+            <input id="logHoliday" type="checkbox" />
+            <span>Holiday / no trip (exclude from balance)</span>
+          </label>
+          <button class="primary" type="submit">Add log</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="summary-title">
+        <div class="panel__header">
+          <h2 id="summary-title">Monthly balance</h2>
+          <p>Check fairness and see who covered which days.</p>
+        </div>
+        <div class="summary-controls">
+          <label class="field">
+            <span>Month</span>
+            <input id="summaryMonth" type="month" />
+          </label>
+          <div class="balance-card" id="balanceCard" aria-live="polite"></div>
+        </div>
+        <div class="grid two" id="summaryLists"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="logbook-title">
+        <div class="panel__header">
+          <h2 id="logbook-title">Full logbook</h2>
+          <p>Review or remove any entry.</p>
+        </div>
+        <div class="table" id="logTable"></div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
